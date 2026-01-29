@@ -25,8 +25,9 @@ section{
 .company img{
 margin-top: 10vw;
   object-fit: cover;
-    width: 100%;
+   max-width: 100%;
     position: block;
+    height: auto;
     opacity: 0.3;
 }
 .company{
