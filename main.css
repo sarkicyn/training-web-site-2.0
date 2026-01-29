@@ -25,8 +25,8 @@ section{
 .company img{
 margin-top: 10vw;
   object-fit: cover;
-   max-width: 100%;
-    display: block;
+  width: 100%;
+  display: inline-block;
     height: auto;
     opacity: 0.3;
 }
@@ -662,7 +662,7 @@ top: clamp(55%,4vw,100%);
 
 
 .p-4 {
-  top: clamp(-20%,4vw,50%);
+  top: clamp(-15%,4vw,50%);
 }
 
 .p {
@@ -849,7 +849,7 @@ top: clamp(50%,4vw,100%);
 
 
 .p-4 {
-  top: clamp(5%,5vw,10%);
+  top: clamp(0%,5vw,10%);
 }
 
 .p-4 span {
