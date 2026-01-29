@@ -26,7 +26,7 @@ section{
 margin-top: 10vw;
   object-fit: cover;
    max-width: 100%;
-    position: block;
+    display: block;
     height: auto;
     opacity: 0.3;
 }
