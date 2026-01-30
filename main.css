@@ -810,6 +810,8 @@ top: 40%;
  max-width: clamp(800px, 5vw,1500px);
  height:clamp(500px,5vw,600px);
 }
+.vibr-tab-content p {
+    font-size: clamp(2.3em, 3vw, 3em);}
 .fack-inputt{
    min-width: clamp(800px, 5vw,1500px);
 }
@@ -978,7 +980,8 @@ top: clamp(50%,5vw,100%);
 
 
  /* grid с position: absolute плохо сочетается */
-
+.vibr-tab-content p {
+    font-size: clamp(2.5em, 3vw, 3em);}
 
 .p-4 {
   top: clamp(5%,5vw,10%);
