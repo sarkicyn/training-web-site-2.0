@@ -157,28 +157,31 @@ transform: scale(1);
 }
 
 .fack-inputt{
-    margin: 10px;
+    margin:200px 10px;
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
+    border-radius: 20px;
     padding: 20px;
     backdrop-filter: blur(20px) saturate(180%);
  box-sizing: border-box;
  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 font-size: 2em;
+ min-width: min(1400px, 95%);
+ 
     
 }
 .fack-inputt h6{
     text-align: center;
-    font-size: 1.5em;
+    font-size: clamp(3rem,5vw,5rem);
    margin: 20px;
 }
 .input input{
     background: rgba(255, 255, 255, 0.15);
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
-    padding: 5px;
+    padding: 10px;
     font-size: 1.4em;
+width: 100%;
     backdrop-filter: blur(20px) saturate(180%);
 margin-top: 10px;
 
@@ -187,7 +190,10 @@ margin-top: 10px;
    outline: none;
   box-shadow: 0 0 0 3px rgba(210, 210, 210, 0.6);
 }
-
+.input span{
+  font-size: 4.3rem;
+  font-weight: 600;
+}
 .btn{
     margin-top: 50px;
     width: 100%;
@@ -203,7 +209,7 @@ box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 transition: 0.3s ease;
 }
 .btn:hover{
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 .btn:active{
     transform: scale(1);
@@ -339,70 +345,104 @@ max-width: 450px;
          flex: 0 0 450px; 
 }
 
-  
 
-.vibr span{
-    display: flex;
-    justify-content: center;
+
+.vibr-tabs {
+  
+    max-width: min(1400px, 95%);
+    flex:1;
+    min-height:600px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.vibr-tab-header {
+    font-size: clamp(4rem, 4vw, 4.5rem);
     text-align: center;
-font-size: 80px;
-transition: 0.3s ease;
-cursor: pointer;
-width: 100%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0;
 }
 
-
-.vibr p
-  { max-width: clamp(800px, 3vw, 1200px);
-  /* Шрифт - важнее всего для читаемости */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-  
-  /* Выравнивание и отступы */
-  text-align: justify;
-  text-justify: inter-word; /* Лучшее выравнивание для браузеров */
-  hyphens: auto; /* Переносы слов для красивого выравнивания */
-  
-  /* Макет */
-  display: block; /* flex для параграфа не нужен */
-  margin:30px auto;
-
-  width: 100%;
-  
-  /* Читаемость */
-  line-height: 1.6; /* Увеличил для лучшей читаемости */
-  letter-spacing: 0.01em; /* Микро-кернинг */
-  word-spacing: 0.05em;
-  
-  /* Цвет и контраст */
-  color: black; /* Темно-серый лучше черного для чтения */
-  opacity: 0; /* Убрал 0, иначе текст невидимый! */
-  
-  /* Прокрутка - обычно не нужна для параграфа */
-  overflow: visible; /* auto меняем на visible */
-  
-  /* Дополнительные улучшения */
-  padding: 0 10px; /* Воздух по бокам на мобильных */
-  box-sizing: border-box; /* Чтобы padding учитывался в ширине */
-}
-.vibr span:hover +  p{
-    opacity: 1;
+.vibr-tab-nav {
+    display: flex;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.vibr{
-    margin: 0 auto;
-    max-width: 1100px;
-    transition: 0.3s ease;
-    margin-top: 50px;
-    font-size: 2em;
-    width: 100%;
+.vibr-tab-btn {
+    flex: 1;
+    padding: 18px 10px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.vibr:hover{
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 10px;
-border-radius: 20px;
+.vibr-tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: #3b82f6;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
 
+.vibr-tab-btn:hover,
+.vibr-tab-btn.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.vibr-tab-btn.active::after {
+    width:100%;
+}
+
+.vibr-tab-content {
+    padding: 30px;
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.vibr-tab-content.active {
+    display: block;
+}
+
+.vibr-tab-content p {
+    font-size: clamp(1.8em, 3vw, 3em);
+    line-height: 1.7;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: justify;
+    text-justify: inter-word;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    /* Более равномерное выравнивание */
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    
+    /* Контроль переносов */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 
@@ -585,7 +625,13 @@ width: 100%;
 .p-4 span{
   font-size: 4em;
 }
-
+.vibr-tabs{
+ max-width: clamp(1000px, 5vw,1500px);
+ height:clamp(700px,5vw,800px);
+}
+.fack-inputt{
+   min-width: clamp(1000px, 5vw,1500px);
+}
 }
 
   
@@ -657,7 +703,9 @@ left: 4.8rem;
 top: clamp(55%,4vw,100%);
 }
 
-
+.fack-inputt h6{
+  font-size: clamp(2.5rem, 5vw, 3rem);
+}
  /* grid с position: absolute плохо сочетается */
 
 
@@ -758,6 +806,15 @@ top: 40%;
     transform: translateY(20%);
     font-size: 1.2em;
 }
+.vibr-tabs{
+ max-width: clamp(800px, 5vw,1500px);
+ height:clamp(500px,5vw,600px);
+}
+.fack-inputt{
+   min-width: clamp(800px, 5vw,1500px);
+}
+.input span{
+  font-size: 2.5rem;}
 }
 
 @media (max-width:900px){
@@ -785,6 +842,7 @@ width: 100%;
     font-size: 1.2em;
     max-width: 400px;
 }
+
 .fackv{
 
   display: flex;                  /* включаем flex */

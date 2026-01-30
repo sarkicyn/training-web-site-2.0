@@ -22,11 +22,27 @@ BMW уверенно смотрит в будущее, развивая элек
 
 </section>
 <section id="advantages" class="advantages">
-    <div class="vibr">
-        <span>BMW Vibrator — технологии удовольствия премиум-класса</span>
-        <p>Этот вибратор создан для тех, кто ценит точность, комфорт и элегантность. Каждая вибрация оптимально сбалансирована, адаптируется под ваши ощущения и обеспечивает персонализированный опыт, словно вы управляете спорткаром BMW.
-</p>
+<div class="vibr-tabs">
+    <h2 class="vibr-tab-header">BMW Vibrator</h2>
+    <div class="vibr-tab-nav">
+        <button class="vibr-tab-btn active" onclick="openTab('tab1')">Обзор</button>
+        <button class="vibr-tab-btn" onclick="openTab('tab2')">Описание</button>
+       
     </div>
+    
+    <div id="tab1" class="vibr-tab-content active">
+        <p>BMW Vibe появился как внутренний инженерный эксперимент: специалисты BMW решили применить свой опыт точной настройки вибраций двигателя и подвески в компактном девайсе...</p>
+    </div>
+    
+    <div id="tab2" class="vibr-tab-content">
+        <p>
+Премиальное устройство    с точной, мощной и контролируемой вибрацией, созданный по тем же инженерным принципам, что и легендарные автомобили бренда....</p>
+    </div>
+    
+    
+</div>
+
+
   <div class="fackv">
     <div class="fack">
     <div class="fack-item">
@@ -76,10 +92,10 @@ BMW уверенно смотрит в будущее, развивая элек
     <label c for="input">
 <h6>Оставьте данные</h6>
         <div class="input">
-        <input type="text" minlength="3" maxlength="30" required placeholder="Логин">
+       <span> Логин</span><input type="text" minlength="3" maxlength="30" required>
         </div>
         <div class="input">
-            <input type="password" minlength="3" maxlength="30" placeholder="Пароль" required>
+            <span> Пароль</span> <input type="password" minlength="3" maxlength="30"  required>
         </div>
         <input  class="check" type="checkbox">Запомнить меня
     </label>
@@ -94,3 +110,22 @@ BMW уверенно смотрит в будущее, развивая элек
 <div class="fooo"><i class='bx bxl-facebook' ></i>: <span> bolshoichlen@viert</span></div>
 </footer>
 </body>
+<script>
+function openTab(tabId) {
+    // Скрыть все вкладки
+    document.querySelectorAll('.vibr-tab-content').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    // Убрать активность у всех кнопок
+    document.querySelectorAll('.vibr-tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    
+    // Показать выбранную вкладку
+    document.getElementById(tabId).classList.add('active');
+    
+    // Активировать кнопку
+    event.currentTarget.classList.add('active');
+}
+</script>
